@@ -3,9 +3,9 @@ const htmlmin = require('html-minifier');
 const now = String(Date.now());
 
 module.exports = function (eleventyConfig) {
-
-    // Setup files
     eleventyConfig.setUseGitIgnore(false);
+
+    // Setup CSS files
     eleventyConfig.addWatchTarget('./_tmp/style.css');
     eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' });
 
@@ -35,4 +35,11 @@ module.exports = function (eleventyConfig) {
         './node_modules/alpinejs/dist/alpine.js': './js/alpine.js'
     });
     // Could supabase be used the same way alpine is here?
+
+    return {
+        dir: {
+            input: "src",
+            output: "_site"
+        }
+    };
 };
