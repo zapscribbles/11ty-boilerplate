@@ -4,19 +4,23 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
-    "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "start": "rimraf _site && eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
+    "build": "rimraf _site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
+    "@11ty/eleventy-navigation": "^0.1.6",
     "alpinejs": "^2.8.2",
     "autoprefixer": "^10.2.5",
     "clean-css-cli": "^5.2.2",
     "html-minifier": "^4.0.0",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.1.1"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
   }
 }

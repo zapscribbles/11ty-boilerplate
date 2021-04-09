@@ -1,0 +1,12 @@
+<nav  class="bg-gray-800 h-16 relative flex items-center justify-between">
+    <div class="hidden sm:block sm:ml-6">
+        <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            {% set navPages = collections.all | eleventyNavigation %}
+            {%- for entry in navPages %}
+                <a href="{{ entry.url | url }}" class="px-3 py-2 rounded-md text-sm font-medium {% if entry.url == page.url %} bg-gray-900 text-white {% else %} text-gray-300 hover:bg-gray-700 hover:text-white {% endif %}">{{ entry.title }}</a>
+            {%- endfor %}
+        </div>
+    </div>
+    <div class="flex-shrink-0 flex items-center text-white mx-2">{{ title }}</div>
+</nav>

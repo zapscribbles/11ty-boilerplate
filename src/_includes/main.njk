@@ -1,9 +1,11 @@
+---
+title: Stephen's Eleventy Boilerplate
+js: 
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>
-      {% block title %}Does it work?{% endblock %}
-    </title>
+    <title>{{ title }}</title>
     <meta charset="UTF-8"/>
     {% if description %}
       <meta name="description" content="{{description}}"/>
@@ -12,9 +14,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
     <link rel="stylesheet" href="/style.css?v={% version %}"/>
     {% block head %}{% endblock %}
-    <script src="/js/alpine.js?v={% version %}"></script>
+    <script src="/common-js/alpine.js?v={% version %}"></script>
+    {% if js %}
+      <script src="{{ js }}?v={% version %}"></script>
+    {% endif %}
+    
   </head>
   <body>
+    {% include "partials/header.njk" %}
+
     {% block content %}
       {{ content | safe }}
     {% endblock %}

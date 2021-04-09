@@ -1,13 +1,18 @@
 const htmlmin = require('html-minifier');
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 const now = String(Date.now());
 
 module.exports = function (eleventyConfig) {
     eleventyConfig.setUseGitIgnore(false);
 
-    // Setup CSS files
+    // Add plugins
+    eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
+    // Setup files
     eleventyConfig.addWatchTarget('./_tmp/style.css');
     eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' });
+    eleventyConfig.addPassthroughCopy("src/**/*.js");
 
     // This adds a variable that can be used in the template. In this case, we use build time to identify the current version of the site
     eleventyConfig.addShortcode('version', function () {
@@ -32,7 +37,7 @@ module.exports = function (eleventyConfig) {
 
     // Tell Eleventy to pass things through Alpine
     eleventyConfig.addPassthroughCopy({
-        './node_modules/alpinejs/dist/alpine.js': './js/alpine.js'
+        './node_modules/alpinejs/dist/alpine.js': './common-js/alpine.js'
     });
     // Could supabase be used the same way alpine is here?
 

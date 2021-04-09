@@ -1,14 +1,14 @@
 ---
-layout: default.html
+layout: body
+js: index.js
+eleventyNavigation:
+  key: Home
 ---
-{% block title %}It does work{% endblock %}
 
-{% block content %}
-  <div class="fixed inset-0 flex justify-center items-center">
-    <div>
-      <span class="text-change">Good design</span><br/>
-      <span class="change">is<br/>as little design<br/>as possible</span>
-      <span x-data="{message:'🤖 Hello World 🤓'}" x-text="message"></span>
-    </div>
-  </div>
-{% endblock %}
+<div class="flex flex-col space-y-5 justify-center items-center w-full mt-20">
+	<div>
+		<span class="text-change">Good design</span><br/>
+		<span class="change">is<br/>as little design<br/>as possible</span>
+	</div>
+	<div x-data="componentData()" x-text="message"></div>
+</div>
