@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "rimraf _site && eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
-    "build": "rimraf _site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "start": "rimraf ./_site && eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
+    "build": "rimraf ./_site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
   },
   "keywords": [],
   "author": "",

@@ -7,3 +7,15 @@
     color: black;
   }
 }
+
+nav {
+  background-color: #D1E3DD;
+}
+
+.btn {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-blue-900 hover:bg-blue-200;
+}
+
+.btn.active {
+ @apply bg-blue-900 text-white;
+}

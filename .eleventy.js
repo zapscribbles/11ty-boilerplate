@@ -13,6 +13,8 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addWatchTarget('./_tmp/style.css');
     eleventyConfig.addPassthroughCopy({ './_tmp/style.css': './style.css' });
     eleventyConfig.addPassthroughCopy("src/**/*.js");
+    eleventyConfig.addPassthroughCopy("assets/*.png", "assets");
+    eleventyConfig.addPassthroughCopy("assets/*.jpg", "assets");
 
     // This adds a variable that can be used in the template. In this case, we use build time to identify the current version of the site
     eleventyConfig.addShortcode('version', function () {
