@@ -8,14 +8,49 @@
   }
 }
 
-nav {
+html {
+  scroll-behavior: smooth;
+}
+
+ a {
+   @apply text-blue-700;
+ }
+.bg-mint {
   background-color: #D1E3DD;
 }
 
-.btn {
-  @apply px-3 py-2 rounded-md text-sm font-medium text-blue-900 hover:bg-blue-200;
+:focus {
+  outline: none !important;
 }
 
-.btn.active {
- @apply bg-blue-900 text-white;
+.slideDownWrapper {
+  transition:height 0.3s ease-out;
+  height:0;
+  overflow:hidden;
+}
+
+nav.btn {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-blue-800 hover:bg-blue-200;
+}
+
+nav.btn.active {
+ @apply bg-blue-800 text-white;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md text-sm font-medium bg-blue-800 text-white hover:bg-blue-900 inline-flex;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  @apply font-sans font-bold w-32 bg-purple-200 text-center rounded-md py-1 text-xs absolute z-10 opacity-0 transition-opacity duration-300 transform translate-y-5;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  @apply opacity-100;
+}
+
+.faq-question {
+    @apply font-bold mt-4;
 }

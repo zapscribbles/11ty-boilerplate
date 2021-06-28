@@ -1,0 +1,14 @@
+{% set navPages = collections.all | eleventyNavigation %}
+{%- for extraLink in extraNav %}
+    {% set navPages = (navPages.push(extraLink), navPages) %}
+{%- endfor %}
+{# <script>console.log('navPages',{{navPages | dump | safe}});</script> #}
+{%- for entry in navPages %}
+    <a
+        href="{{ entry.url | url }}"
+        class="btn {% if entry.url == page.url %} active {% endif %}"
+        {% if entry.clickFunc %} @click="{{ entry.clickFunc }}" {% endif %}
+    >
+        {{ entry.title }}
+    </a>
+{%- endfor %}

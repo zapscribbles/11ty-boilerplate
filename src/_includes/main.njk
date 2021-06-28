@@ -1,6 +1,8 @@
 ---
-title: Stephen's Eleventy Boilerplate
-js: 
+title: 11ty Boilerplate
+js:
+fontAwesomeKitID: 2229cc8bf4
+googleFontsURL: https://fonts.googleapis.com/css2?family=Newsreader&family=Zeyada&display=swap
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -12,13 +14,22 @@ js:
     {% endif %}
     <meta http-equiv="x-ua-compatible" content="ie=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
-    <link rel="stylesheet" href="/style.css?v={% version %}"/>
-    {% block head %}{% endblock %}
-    <script src="/common-js/alpine.js?v={% version %}"></script>
+    <link rel="stylesheet" href="/css/style.css?v={% version %}"/>
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+
+    <script src="https://kit.fontawesome.com/{{ fontAwesomeKitID }}.js" crossorigin="anonymous"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="/common-js/bundle.js?v={% version %}"></script>
+    <script src="/usefulFuncs.js"></script>
+
     {% if js %}
       <script src="{{ js }}?v={% version %}"></script>
     {% endif %}
-    
+
+    <style>
+    @import url('{{ googleFontsURL }}');
+    </style>
+
   </head>
   <body>
     {% include "partials/header.njk" %}

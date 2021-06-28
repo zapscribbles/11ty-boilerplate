@@ -1,26 +1,33 @@
 {
-  "name": "mmweekend",
-  "version": "1.0.0",
-  "description": "",
+  "name": "11ty-boilerplate",
+  "version": "0.0.1",
+  "description": "My Eleventy boilerplate project, w/ Alpine, Tailwind and Browserify",
   "main": "index.js",
   "scripts": {
-    "start": "rimraf ./_site && eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
-    "build": "rimraf ./_site && ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production postcss src/styles/tailwind.css --o _site/style.css && cleancss _site/style.css -o _site/style.css"
+    "start-dev": "pkill -f eleventy; browserify entry.js -o src/common-js/bundle.js & rimraf ./_site & ELEVENTY_PRODUCTION=false eleventy --serve & postcss src/styles/tailwind.css --o _tmp/style.css --watch",
+    "build-prod": "browserify entry.js -o src/common-js/bundle.js & rimraf ./_site & ELEVENTY_PRODUCTION=true eleventy & postcss src/styles/tailwind.css --o _site/css/style.css"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zapscribbles/11ty-boilerplate.git"
+  },
+  "author": "Stephen Zappia",
   "license": "ISC",
-  "devDependencies": {
+  "bugs": {
+    "url": "https://github.com/zapscribbles/11ty-boilerplate/issues"
+  },
+  "homepage": "https://github.com/zapscribbles/11ty-boilerplate#readme",
+  "dependencies": {
     "@11ty/eleventy": "^0.12.1",
     "@11ty/eleventy-navigation": "^0.1.6",
-    "alpinejs": "^2.8.2",
-    "autoprefixer": "^10.2.5",
-    "clean-css-cli": "^5.2.2",
+    "@tailwindcss/forms": "^0.3.3",
+    "browserify": "^17.0.0",
     "html-minifier": "^4.0.0",
-    "postcss-cli": "^8.3.1",
-    "tailwindcss": "^2.1.1"
-  },
-  "dependencies": {
     "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss-cli": "^8.3.0",
+    "tailwindcss": "^2.1.4"
   }
 }
