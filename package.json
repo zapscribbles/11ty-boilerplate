@@ -20,8 +20,10 @@
     "dependencies": {
         "@11ty/eleventy": "^0.12.1",
         "@11ty/eleventy-navigation": "^0.1.6",
+        "@supabase/supabase-js": "^1.20.0",
         "@tailwindcss/forms": "^0.3.3",
         "browserify": "^17.0.0",
+        "dotenv": "^10.0.0",
         "html-minifier": "^4.0.0",
         "netlify-cli": "^5.2.0",
         "node-fetch": "^2.6.1",
