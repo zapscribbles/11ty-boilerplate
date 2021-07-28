@@ -1,5 +1,6 @@
 ---
 layout: body
+permalink: /
 js: index.js
 eleventyNavigation:
   key: Home
@@ -30,6 +31,7 @@ extraNav:
 </div>
 
 <div x-data="componentData" class="text-center m-20">
+    <div>Hi</div>
     <span x-text="message"></span>
     {% set tooltipText = "This is a tooltip" %}
     {% include "partials/tooltip.njk" %}
