@@ -2,7 +2,7 @@
 title: 11ty Boilerplate
 js:
 fontAwesomeKitID: 2229cc8bf4
-googleFontsURL: https://fonts.googleapis.com/css2?family=Newsreader&family=Zeyada&display=swap
+googleFontsURL: <style>@import url('https://fonts.googleapis.com/css2?family=Patua+One&family=Poppins&display=swap');</style>
 extraNav:
   -
     key: CMS Admin
@@ -31,9 +31,7 @@ extraNav:
             <script src="{{ js }}?v={% version %}"></script>
         {% endif %}
 
-        <style>
-            @import url('{{ googleFontsURL }}');
-        </style>
+        {{ googleFontsURL }}
 
     </head>
     <body>
