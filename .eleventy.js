@@ -26,6 +26,9 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addShortcode('version', function () {
         return now;
     });
+    eleventyConfig.addShortcode('versionDate', function () {
+        return Date(now);
+    });
 
     // If being deployed (build rather than start), minify everything
     eleventyConfig.addTransform('htmlmin', function (content, outputPath) {

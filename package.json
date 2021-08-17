@@ -25,7 +25,7 @@
         "browserify": "^17.0.0",
         "dotenv": "^10.0.0",
         "html-minifier": "^4.0.0",
-        "netlify-cli": "^5.2.0",
+        "netlify-cli": "^5.3.1",
         "node-fetch": "^2.6.1",
         "rimraf": "^3.0.2"
     },
