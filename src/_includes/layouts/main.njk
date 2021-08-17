@@ -31,7 +31,7 @@ extraNav:
             <script src="{{ js }}?v={% version %}"></script>
         {% endif %}
 
-        {{ googleFontsURL }}
+        {{ googleFontsURL | safe }}
 
     </head>
     <body>
