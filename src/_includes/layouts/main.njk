@@ -7,6 +7,7 @@ extraNav:
   -
     key: CMS Admin
     url: 'admin'
+wip: true
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +36,10 @@ extraNav:
 
     </head>
     <body>
+        {% if wip %}
+            <div class="overflow-hidden absolute transform -rotate-45 bg-gray-300 text-gray-600 top-9 z-0 left-12 text-sm w-56 -translate-x-1/2 p-x text-center origin-center">Work in Progress</div>
+        {% endif %}
+
         {% block content %}
             {{ content | safe }}
         {% endblock %}
