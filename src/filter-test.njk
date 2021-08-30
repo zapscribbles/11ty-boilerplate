@@ -1,0 +1,111 @@
+---
+layout: body
+eleventyNavigation:
+    key: Filter Test
+tagsType:
+    title: Type
+    tags:
+        -   logo
+        -   brochure
+        -   rebrand
+        -   menu
+tagsAesthetic:
+    title: Aesthetic
+    tags:
+        -   retro
+        -   corporate
+        -   french
+projects:
+    -   title: Project 1
+        colour: bg-red-400
+        tags:
+            type:
+                -   logo
+                -   brochure
+            aesthetic:
+                -   retro
+    -   title: Project 2
+        colour: bg-blue-400
+        tags:
+            type:
+                -   logo
+                -   rebrand
+            aesthetic:
+                -   corporate
+    -   title: Project 3
+        colour: bg-green-400
+        tags:
+            type:
+                -   menu
+                -   rebrand
+            aesthetic:
+                -   corporate
+    -   title: Project 4
+        colour: bg-gray-400
+        tags:
+            type:
+                -   brochure
+            aesthetic:
+                -   french
+---
+
+<div x-data="componentData" x-init="addTags([{{ tagsType.tags | arrayElemsAsStrs }}, {{ tagsAesthetic.tags | arrayElemsAsStrs }}])" class="mx-10">
+    <div class='flex justify-around'>
+        {% for tagGroup in[tagsType, tagsAesthetic] %}
+            <div class='flex-grow text-center'>
+                <h1 class="mb-5 text-xl">{{ tagGroup.title }} Tags</h1>
+                <div class='flex justify-center gap-5'>
+                    {% for tag in tagGroup.tags %}
+                        <div
+                        class='px-3 py-1 rounded border-2 border-blue-400 cursor-pointer hover:bg-blue-200'
+                        @click="{{tag}}.status = !{{tag}}.status;"
+                        :class="{{tag}}.status ? 'bg-blue-400 hover:bg-blue-400' : ''"
+                        >
+                            {{ tag }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class='mt-10 flex flex-col justify-center gap-5'>
+        {% for project in projects %}
+            <div class="block w-full h-52 {{ project.colour }}"
+            x-show="[{{ project.tags.type | arrayElemsAsVars }}, {{ project.tags.aesthetic | arrayElemsAsVars }}].some(tag => tag.status)"
+            x-transition:enter="transition ease-out duration-200"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 transform scale-100"
+            x-transition:leave-end="opacity-0 transform scale-90"
+            x-cloak>
+                {{ project.title }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    const componentData = {
+        addTags(tags) {
+            for (var i = 0; i < tags.length; i++) {
+                var tagName = tags[i];
+                this[tagName] = {};
+                this[tagName].name = tagName;
+                this[tagName].status = false;
+            }
+        },
+        checkTags(tags, projectTitle) {
+            console.log('checking tags', tags)
+            for (tag in tags) {
+                if (tag.status == true) {
+                    console.log(projectTitle, ':', tag.name, ' was true')
+                    return true;
+                }
+            }
+            console.log(projectTitle, 'everything was false')
+            return false;
+        }
+    }
+</script>
