@@ -33,6 +33,26 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('log', value => {
         console.log(value);
     });
+    eleventyConfig.addNunjucksFilter('arrayElemsAsVars', function (array) {
+        var output = '';
+        array.forEach((element, i, arr) => {
+            output += element;
+            if (i + 1 < arr.length) {
+                output += ', ';
+            }
+        });
+        return output;
+    });
+    eleventyConfig.addNunjucksFilter('arrayElemsAsStrs', function (array) {
+        var output = '';
+        array.forEach((element, i, arr) => {
+            output += "'" + element + "'";
+            if (i + 1 < arr.length) {
+                output += ', ';
+            }
+        });
+        return output;
+    });
 
     // If being deployed (build rather than start), minify everything
     eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
