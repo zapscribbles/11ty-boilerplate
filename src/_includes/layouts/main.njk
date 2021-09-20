@@ -29,7 +29,7 @@ wip: true
         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
         {% if js %}
-            <script src="{{ js }}?v={% version %}"></script>
+            <script src="/{{ js }}?v={% version %}"></script>
         {% endif %}
 
         {{ googleFontsURL | safe }}
