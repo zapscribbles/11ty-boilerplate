@@ -10,10 +10,9 @@ module.exports = {
             colors: {
                 lightest: '#B9D6F2',
                 light: '#A9CDEF',
-                darkBlue: '#061A40',
-                mediumBlue: '#0353A4',
-                regularBlue: '#006DAA',
-                greyBlue: '#003559',
+                darkBase: '#061A40',
+                darkHighlight: '#0353A4',
+                button: '#006DAA',
             },
             fontFamily: {
                 heading: ['Patua One', 'sans-serif'],

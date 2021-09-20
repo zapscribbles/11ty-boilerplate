@@ -13,11 +13,11 @@ html {
 }
 
 a {
-    @apply text-mediumBlue;
+    @apply text-darkHighlight;
 }
 
 body {
-    @apply font-body bg-lightest text-darkBlue;
+    @apply font-body bg-lightest text-darkBase;
 }
 
 h1,
@@ -26,7 +26,7 @@ h3,
 h4,
 h5,
 h6 {
-    @apply font-heading text-xl text-darkBlue;
+    @apply font-heading text-xl text-darkBase;
 }
 
 h1 {
@@ -64,7 +64,7 @@ nav.btn.active {
 }
 
 .btn {
-    @apply px-4 py-2 rounded-md text-sm font-medium bg-blue-800 text-white hover:bg-blue-900 inline-flex;
+    @apply px-4 py-2 rounded-md text-sm font-medium bg-button text-white hover:bg-blue-900 inline-flex;
 }
 
 /* Tooltip text */
